@@ -101,6 +101,16 @@ class PausableProgressBar @JvmOverloads constructor(
         invalidate()
     }
 
+    fun setProgressColor(color: Int) {
+        paintProgress.color = color
+        invalidate()
+    }
+
+    fun setBackgroundColorCustom(color: Int) {
+        paintBackground.color = color
+        invalidate()
+    }
+
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         val heightCenter = height / 2f
