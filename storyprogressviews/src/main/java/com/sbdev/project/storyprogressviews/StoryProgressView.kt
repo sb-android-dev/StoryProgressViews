@@ -1,6 +1,7 @@
 package com.sbdev.project.storyprogressviews
 
 import android.content.Context
+import android.graphics.Color
 import android.util.AttributeSet
 import android.view.View
 import android.widget.LinearLayout
@@ -17,7 +18,9 @@ class StoryProgressView @JvmOverloads constructor(
 
     private val progressBars: ArrayList<PausableProgressBar> = ArrayList()
 
-    private var storiesCount: Int = -1
+    private var storiesCount: Int = 0
+    private var progressColor: Int = Color.WHITE
+    private var backgroundColor: Int = Color.GRAY
     private var current: Int = -1
     private var storiesListener: StoriesListener? = null
     private var isComplete: Boolean = false
@@ -33,6 +36,8 @@ class StoryProgressView @JvmOverloads constructor(
         orientation = HORIZONTAL
         context.withStyledAttributes(attrs, R.styleable.StoriesProgressView) {
             storiesCount = getInt(R.styleable.StoriesProgressView_progressCount, 0)
+            progressColor = getColor(R.styleable.StoriesProgressView_progressColor, Color.WHITE)
+            backgroundColor = getColor(R.styleable.StoriesProgressView_progressBackgroundColor, Color.GRAY)
         }
         bindViews()
     }
@@ -52,9 +57,11 @@ class StoryProgressView @JvmOverloads constructor(
     }
 
     private fun createProgressBar(): PausableProgressBar {
-        val p = PausableProgressBar(context)
-        p.layoutParams = progressBarLayoutParams
-        return p
+        return PausableProgressBar(context).apply {
+            layoutParams = progressBarLayoutParams
+            setProgressColor(progressColor)
+            setBackgroundColorCustom(backgroundColor)
+        }
     }
 
     private fun createSpace(): View {
