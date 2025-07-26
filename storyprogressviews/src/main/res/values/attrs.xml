@@ -5,6 +5,8 @@
         <attr name="progressCount" format="integer|reference" />
         <attr name="progressColor" format="color|reference" />
         <attr name="progressBackgroundColor" format="color|reference" />
+        <attr name="progressDuration" format="integer|reference" />
+        <attr name="progressSpace" format="dimension|reference" />
     </declare-styleable>
 
 </resources>

@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">StoryProgressViews</string>
+    <string name="with_actions">With Actions</string>
+    <string name="with_different_durations">With Different Durations</string>
+    <string name="with_custom_properties">With Custom Properties</string>
+    <string name="simple">Simple</string>
 </resources>
