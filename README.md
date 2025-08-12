@@ -1,3 +1,5 @@
+[![](https://jitpack.io/v/sb-android-dev/StoryProgressViews.svg)](https://jitpack.io/#sb-android-dev/StoryProgressViews)
+
 # StoryProgressViews
 
 A customizable Android UI library for displaying story-like progress indicators (similar to Instagram/Facebook stories) with pause and resume support.
