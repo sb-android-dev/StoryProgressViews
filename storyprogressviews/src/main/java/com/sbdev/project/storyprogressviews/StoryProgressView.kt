@@ -91,8 +91,6 @@ class StoryProgressView @JvmOverloads constructor(
 
             override fun onFinishProgress() {
                 if (isReverseStart) {
-                    storiesListener?.onPrev()
-
                     if (0 <= (current - 1)) {
                         val p = progressBars[current - 1]
                         p.clearProgress()
@@ -101,13 +99,14 @@ class StoryProgressView @JvmOverloads constructor(
                         progressBars[current].startProgress()
                     }
                     isReverseStart = false
+                    storiesListener?.onPrev()
                     return
                 }
 
                 val next = current + 1
                 if (next <= (progressBars.size - 1)) {
-                    storiesListener?.onNext()
                     progressBars[next].startProgress()
+                    storiesListener?.onNext()
                 } else {
                     isComplete = true
                     storiesListener?.onComplete()
@@ -248,6 +247,11 @@ class StoryProgressView @JvmOverloads constructor(
         isReverseStart = true
         progressBars[current].clearProgress(true)
     }
+
+    /**
+     * Returns the current story index. Default is -1
+     */
+    fun getCurrentStoryIndex(): Int = current
 
     interface StoriesListener {
         fun onNext()

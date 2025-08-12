@@ -1,6 +1,7 @@
 package com.sbdev.project.sample
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -89,10 +90,16 @@ class MainActivity : AppCompatActivity() {
         storiesProgressView.setStoriesListener(object : StoryProgressView.StoriesListener {
             override fun onNext() {
                 // Perform action when goes to next story
+
+                val index = storiesProgressView.getCurrentStoryIndex()
+                Log.d(MainActivity::class.java.simpleName, "onNext: current index: $index")
             }
 
             override fun onPrev() {
                 // Perform action when goes to previous story
+
+                val index = storiesProgressView.getCurrentStoryIndex()
+                Log.d(MainActivity::class.java.simpleName, "onPrev: current index: $index")
             }
 
             override fun onComplete() {
